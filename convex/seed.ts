@@ -214,3 +214,39 @@ export const seedSkills = mutation({
     return results;
   },
 });
+
+// Reset votes: top 6 get 1 vote, rest get 0
+export const resetVotes = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const skills = await ctx.db
+      .query("skills")
+      .withIndex("by_approved", (q) => q.eq("approved", true))
+      .collect();
+
+    // Sort by current featured score to identify top 6
+    const sorted = skills.sort(
+      (a, b) =>
+        b.upvoteCount * 2 + b.viewCount - (a.upvoteCount * 2 + a.viewCount)
+    );
+
+    const results = [];
+    for (let i = 0; i < sorted.length; i++) {
+      const skill = sorted[i];
+      const newUpvoteCount = i < 6 ? 1 : 0;
+
+      await ctx.db.patch(skill._id, {
+        upvoteCount: newUpvoteCount,
+        viewCount: 0,
+      });
+
+      results.push({
+        name: skill.name,
+        upvoteCount: newUpvoteCount,
+        position: i + 1,
+      });
+    }
+
+    return results;
+  },
+});

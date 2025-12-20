@@ -52,15 +52,15 @@ git add .claude/skills/${slug}`;
 
       <div className="space-y-4">
         <div>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
             <h4 className="font-medium">Personal Use</h4>
             <span className="text-xs text-muted-foreground">
               Available across all projects
             </span>
           </div>
           <div className="relative">
-            <pre className="bg-muted rounded-lg p-4 text-sm overflow-x-auto">
-              <code>{personalCommand}</code>
+            <pre className="bg-muted rounded-lg p-4 pr-12 text-sm overflow-x-auto max-w-full">
+              <code className="text-xs break-all whitespace-pre-wrap">{personalCommand}</code>
             </pre>
             <Button
               variant="ghost"
@@ -78,15 +78,15 @@ git add .claude/skills/${slug}`;
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
             <h4 className="font-medium">Project/Team Use</h4>
             <span className="text-xs text-muted-foreground">
               Shared via git with team
             </span>
           </div>
           <div className="relative">
-            <pre className="bg-muted rounded-lg p-4 text-sm overflow-x-auto">
-              <code>{projectCommand}</code>
+            <pre className="bg-muted rounded-lg p-4 pr-12 text-sm overflow-x-auto max-w-full">
+              <code className="text-xs break-all whitespace-pre-wrap">{projectCommand}</code>
             </pre>
             <Button
               variant="ghost"

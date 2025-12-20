@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     const adminEmail = process.env.ADMIN_EMAIL;
     if (adminEmail && resend) {
       await resend.emails.send({
-        from: "Skills Directory <noreply@resend.dev>",
+        from: `AI Agent Skills <${process.env.SEND_EMAIL || "noreply@resend.dev"}>`,
         to: adminEmail,
         subject: `New Skill Submission: ${name}`,
         html: `
