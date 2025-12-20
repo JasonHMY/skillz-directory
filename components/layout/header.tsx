@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ThemeTogglerButton } from "@/components/animate-ui/components/buttons/theme-toggler";
 
 export function Header() {
   return (
@@ -12,6 +13,7 @@ export function Header() {
         </Link>
 
         <nav className="flex flex-1 items-center justify-end space-x-4">
+          <ThemeTogglerButton variant="ghost" size="sm" />
           <Link href="/submit">
             <Button variant="default" size="sm">
               Submit a Skill
