@@ -52,11 +52,20 @@ export const metadata: Metadata = {
     siteName: "AI Agent Skills Directory",
     title: "AI Agent Skills Directory",
     description: siteDescription,
+    images: [
+      {
+        url: "/demo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "AI Agent Skills Directory",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Agent Skills Directory",
     description: siteDescription,
+    images: ["/demo.jpeg"],
   },
   robots: {
     index: true,
