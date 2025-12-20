@@ -7,7 +7,7 @@ export function Footer() {
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built for the AI agent community.{" "}
           <Link
-            href="https://github.com"
+            href="https://github.com/keyman500/skills"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
