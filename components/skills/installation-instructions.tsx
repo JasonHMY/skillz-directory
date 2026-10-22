@@ -23,10 +23,12 @@ export function InstallationInstructions({
     .replace(/^-|-$/g, "");
 
   const personalCommand = `mkdir -p ~/.claude/skills/${slug}
-# Copy SKILL.md from GitHub to ~/.claude/skills/${slug}/`;
+# Copy the entire skill folder from GitHub into ~/.claude/skills/${slug}/
+# Keep SKILL.md at this level and preserve all supporting files and subfolders.`;
 
   const projectCommand = `mkdir -p .claude/skills/${slug}
-# Copy SKILL.md from GitHub to .claude/skills/${slug}/
+# Copy the entire skill folder from GitHub into .claude/skills/${slug}/
+# Keep SKILL.md at this level and preserve all supporting files and subfolders.
 git add .claude/skills/${slug}`;
 
   const copyToClipboard = async (text: string, type: "personal" | "project") => {
@@ -45,8 +47,11 @@ git add .claude/skills/${slug}`;
       <div>
         <h3 className="text-lg font-semibold mb-2">Installation</h3>
         <p className="text-muted-foreground text-sm mb-4">
-          Claude Code skills are folder-based. Download the SKILL.md file from
-          GitHub and place it in one of these locations:
+          Claude Code skills are folder-based. Follow the repository’s installation
+          instructions, or copy the complete skill folder into one of these
+          locations. Include SKILL.md and all supporting files, such as scripts,
+          assets, and references, preserving their relative paths. Copying only
+          SKILL.md can leave the skill unable to run.
         </p>
       </div>
 
